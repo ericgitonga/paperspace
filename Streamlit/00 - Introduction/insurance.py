@@ -128,7 +128,7 @@ if file is not None:
 
     with st.form("Data to Calculate Premiums"):
         
-        st.write("Gathering insect information inside the form")
+        st.write("Use this form to find out how much you will be charged in insurance premium.")
         age = st.number_input("What is your age?", min_value = 18, max_value = 100)
         bmi = st.number_input("What is your BMI?", min_value = 0.0)
         gender = st.radio("What is your gender?", ["Male", "Female"])
@@ -149,6 +149,5 @@ if file is not None:
                      gender_coeff * gender +\
                      smoker_coeff * smoker +\
                      y_intercept
-        submitted = st.form_submit_button("Click to find out your premium")
-    
-        st.write("You will be charged {} dollars as premium".format(round(premium_charge,2)))
+        if st.form_submit_button("Click to find out your premium"):
+            st.write("You will be charged {} dollars as premium".format(round(premium_charge,2)))
