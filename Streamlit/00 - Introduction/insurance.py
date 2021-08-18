@@ -96,9 +96,9 @@ if file is not None:
         tcol1, tcol2 = st.columns(2)
     
         with tcol1:
-            st.dataframe(X_train.head())
+            st.dataframe(X_train.sample(5))
         with tcol2:
-            st.dataframe(y_train.head())
+            st.dataframe(y_train.sample(5))
     
     model = LinearRegression().fit(X_train, y_train)
     predictions = model.predict(X_test)
